@@ -151,7 +151,7 @@ class ClusterWastedSpace
         {
             clusterSize = bytesPerSector * sectorsPerCluster;
 
-            if ( 0 != clusterSize && 0 != totalNumberOfClusters )
+            if ( 0 != clusterSize )
             {
                 Enumerate( diRoot, filespec, po );
 
