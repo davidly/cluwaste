@@ -79,7 +79,11 @@ class ClusterWastedSpace
         {
             Parallel.ForEach( diRoot.EnumerateFiles( spec ), po, ( fileInfo ) =>
             {
-                ulong waste = clusterSize - ( (ulong) fileInfo.Length % clusterSize );
+                ulong waste = 0;
+                ulong mod = (ulong) fileInfo.Length % clusterSize;
+                if ( 0 != mod )
+                    waste = clusterSize - ( (ulong) fileInfo.Length % clusterSize );
+
                 Interlocked.Increment( ref filesExamined );
                 Interlocked.Add( ref totalWasted, waste );
                 Interlocked.Add( ref totalUsed, (ulong) fileInfo.Length );
