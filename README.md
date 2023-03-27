@@ -18,7 +18,7 @@ Windows command-line tool to see how much space is wasted in the final cluster o
     
      bps = bytes per sector. spc = sectors per cluster.
      
-     Disks allocate space with a minimum granularity of one cluster. For the examples above,
+     File systems allocate space with a minimum granularity of one cluster. For the examples above,
      one cluster is (512 bps * 8 spc) = 4k on C:, 32K on d:, and 512k on F:.
      
      When a file doesn't use the entire last cluster allocated, the extra space is wasted.
