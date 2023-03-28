@@ -82,7 +82,7 @@ class ClusterWastedSpace
                 ulong waste = 0;
                 ulong mod = (ulong) fileInfo.Length % clusterSize;
                 if ( 0 != mod )
-                    waste = clusterSize - ( (ulong) fileInfo.Length % clusterSize );
+                    waste = clusterSize - mod;
 
                 Interlocked.Increment( ref filesExamined );
                 Interlocked.Add( ref totalWasted, waste );
